@@ -1,0 +1,13 @@
+{% extends 'AppNepthune/base.html' %}
+
+{% block content %}
+{% if student %}
+    <ul>
+        <li>{{ student.name }}</li>
+        <li>{{ student.surname }}</li>
+        <li>{{ student.birthday }}</li>
+    </ul>
+{% else %}
+    <p>No student registered at this id.</p>
+{% endif %}
+{% endblock %}

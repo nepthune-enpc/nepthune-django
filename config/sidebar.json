@@ -1,0 +1,24 @@
+{
+    "main": [
+        {
+            "title": "Accueil",
+            "url": "/page-accueil-valide-eleve.html",
+            "icon": "ri-dashboard-line"
+        },
+        {
+            "title": "Mes informations",
+            "url": "/modif-infos-persos.html",
+            "icon": "ri-folder-2-line"
+        },
+        {
+            "title": "Mes filtres",
+            "url": "/filtres/",
+            "icon": "ri-bar-chart-2-fill"
+        },
+        {
+            "title": "Mes Notifications",
+            "url": "/notifications/",
+            "icon": "ri-notification-2-line"
+        }
+    ]
+}
