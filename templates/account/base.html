@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Nepthune</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="shortcut icon" type="image/ico" href="{% static 'AppNepthune/favicon.ico' %}" />
+    <link href="https://unpkg.com/css-pro-layout/dist/css/css-pro-layout.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <!-- Add additional CSS in static file -->
+    <!-- <link rel="stylesheet" href="{% static 'account/style.css' %}"> -->
+    </head>
+    <body>
+        <header class="wrapper">
+            {% block title %}<h1>Vous Etes ...</h1>{% endblock %}
+            <h1><img src="{% static 'nepthune_logo.png' %}"></h1>
+        </header>
+        <div class="wrapper">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

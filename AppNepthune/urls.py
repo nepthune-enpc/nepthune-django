@@ -9,3 +9,4 @@ urlpatterns = [
     path('modif-infos-persos.html', views.infos_perso, name='infos'),
     path('AppNepthune/<int:student_id>/', views.detail, name='detail'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+

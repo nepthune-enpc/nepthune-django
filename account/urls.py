@@ -5,5 +5,5 @@ from . import views
 
 app_name = 'account'
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('signup/', views.signup_view, name="signup"),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

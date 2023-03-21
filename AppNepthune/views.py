@@ -54,4 +54,4 @@ def infos_perso(request):
         'navbar_contents': settings.NAV_TITLES,
         'form': form,
     }
-    return render(request, 'AppNepthune/modif-infos-persos.html', context,  RequestContext(request))
+    return render(request, 'AppNepthune/modif-infos-persos.html', context)

@@ -122,7 +122,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -134,5 +134,10 @@ mimetypes.add_type("text/css", ".css", True)
 mimetypes.add_type("text/html", "", True)
 
 import json
+import os
 SIDEBAR_TITLES = json.load(open(BASE_DIR / "config/sidebar.json", "r"))["main"]
 NAV_TITLES = json.load(open(BASE_DIR / "config/navigation.json", "r"))["main"]
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"), 
+]
