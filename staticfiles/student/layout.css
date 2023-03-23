@@ -1,0 +1,22 @@
+.layout {
+    z-index: 1;
+}
+
+.layout .header {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+}
+
+.layout .content {
+      padding: 12px 50px;
+      display: flex;
+      flex-direction: column;
+}
+  
+.layout .footer {
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: 20px;
+    padding: 20px;
+}

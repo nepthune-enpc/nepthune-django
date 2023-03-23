@@ -1,0 +1,17 @@
+{% extends 'account/base.html' %}
+
+{% block content %} 
+    <div class="vertical-center">
+        <div class="container">
+            <h1>Vous êtes ...</h1>
+            <div class="text-center">
+                <button class="form__button" type="submit" onClick="location.href='./account/login';">Un élève</button>
+                <br><br>
+                <button class="form__button" type="submit" onclick="location.href='./account/login';">Une université</button>
+                <br><br>
+                <button class="form__button" type="submit" onclick="location.href='./account/login';">Un partenaire</button>
+                <br>
+            </div>
+        </div>
+    </div>
+{% endblock %}

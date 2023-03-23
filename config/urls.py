@@ -18,11 +18,14 @@ from django.contrib import admin
 from django.conf.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
+from account import views
 
 urlpatterns = [
-    path('', include('AppNepthune.urls')),
-    # path('AppNepthune/', include('AppNepthune.urls')),
+    # path('', include('AppNepthune.urls')),
+    path('', views.first_page_view, name="authenticate"),
+    path('student/', include('student.urls')),
     path('account/', include('account.urls')),
+    path('sponsors/', include('sponsors.urls')),
     path('admin/', admin.site.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

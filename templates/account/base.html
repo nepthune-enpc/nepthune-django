@@ -5,8 +5,8 @@
     <title>Nepthune</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link rel="shortcut icon" type="image/ico" href="{% static 'AppNepthune/favicon.ico' %}" />
+    <!-- <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'> -->
+    <link rel="shortcut icon" type="image/ico" href="{% static 'student/favicon.ico' %}" />
     <link href="https://unpkg.com/css-pro-layout/dist/css/css-pro-layout.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <!-- Add additional CSS in static file -->
@@ -14,8 +14,8 @@
     </head>
     <body>
         <header class="wrapper">
-            {% block title %}<h1>Vous Etes ...</h1>{% endblock %}
-            <h1><img src="{% static 'nepthune_logo.png' %}"></h1>
+            {% block title %}<h1>Bienvenue !</h1>{% endblock %}
+            <h1><img style="width: 170px;" src="{% static 'nepthune_logo.png' %}"></h1>
         </header>
         <div class="wrapper">
             {% block content %}
@@ -23,3 +23,57 @@
         </div>
     </body>
 </html>
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+    .container {
+        width: 400px;
+        max-width: 400px;
+        margin: 1rem;
+        padding: 2rem;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+        border-radius: var(--border-radius);
+        background: #ffffff;
+        justify-content: center;
+        text-align: center;  
+        align-items: center;
+        display: block;
+    }
+
+    .form__button {
+        border: none;
+        outline: none;
+        color: #fff;
+        background-color: #0e489d;
+        padding: 0.95rem 1.5rem;
+        cursor: pointer;
+        border-radius: 0.312rem;
+        font-size: 1.2rem;
+        /* display: block; */
+        width: 300px;
+        text-align: center;
+  }
+
+  .form__button:hover {
+    opacity: 0.8;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+  h1 {
+    color: rgba(5, 21, 79, 0.92);
+    text-align: center;
+   }
+
+  .vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+</style>

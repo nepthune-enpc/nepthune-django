@@ -1,0 +1,44 @@
+<div class="navbar-layout">
+    <ul>
+        {% for item in navbar_titles %}
+        <li> 
+            <!-- <li class="{% if item.url == page.url %}active{% endif %}"> -->
+            <a href=".{{ item.url }}">{{ item.title }}</a>
+        </li>
+        {% endfor %}
+        <li style="margin-left: 400px;">
+            <form class="logout-link" action="{% url 'account:logout' %}" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="Déconnexion"></button>
+            </form>
+        </li>
+    </ul>
+</div>
+<style>
+    .navbar-layout  {
+        display: flex;
+    }
+    .navbar-layout ul {
+        display: flex;
+        list-style: none;
+    }
+    .navbar-layout ul li {
+        margin-right: 60px;
+    }
+    .navbar-layout ul li a {
+        text-decoration: none;
+        font-family: sans-serif;
+        font-size: 1.2em;
+        font-weight:500;
+        color:rgb(3, 84, 108);
+    }
+    .navbar-layout ul li a:hover {
+        text-decoration: underline 4px;
+        transition: 0.5s;
+    }
+
+    body {
+        font-family: 'Poppins', ans-serif;
+        /* font-size: 1.5em; */
+    }
+</style>
