@@ -1,5 +1,5 @@
 // import "{% static 'student/style.css' %}";
-import '../../../../static/student/style.css';
+// import '../../../../static/student/style.css';
 import { slideToggle, slideUp, slideDown } from './slide.js';
 import {
   ANIMATION_DURATION,

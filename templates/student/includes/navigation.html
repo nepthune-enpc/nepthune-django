@@ -9,7 +9,7 @@
         <li style="margin-left: 400px;">
             <form class="logout-link" action="{% url 'account:logout' %}" method="POST">
                 {% csrf_token %}
-                <input type="submit" value="Déconnexion"></button>
+                <input type="submit" value="Déconnexion">
             </form>
         </li>
     </ul>

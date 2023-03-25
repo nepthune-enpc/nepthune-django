@@ -4,10 +4,46 @@
     <h1>S'authentifier</h1>
     <form class="site-form" action="{% url 'account:login' %}" method="post">
       {% csrf_token %}
-      {{ form }}
+      {{ form.as_ul }}
       {% if request.GET.next %}
         <input type="hidden" name="next" value="{{ request.GET.next }}">
       {% endif %}
       <input type="submit" value="login">
     </form>
+    <style>
+      .table {
+        font-style: normal;
+      }
+      .form-control {
+        text-align: left;
+        font-style: normal;
+        margin-bottom: 0.5em;
+        position: relative;
+        display:block;
+    
+      }
+      ul {
+        text-align: left;
+        font-style: normal;
+        margin-bottom: 0.5em;
+        position: relative;
+        display:block;
+        font-family: 'Poppins', sans-serif;
+    
+      }
+      .ul li {
+        text-align: left;
+        font-style: normal;
+        margin-bottom: 2.5em;
+        position: relative;
+        display:block;
+        font-family: 'Poppins', sans-serif;
+    
+      }
+      /* input[type="text"] > span {
+        display: block;
+        position: relative;
+        margin-bottom: 10px;
+      } */
+    </style>
 {% endblock %}

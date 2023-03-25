@@ -132,11 +132,14 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 import mimetypes
-mimetypes.add_type("text/css", ".css", True)
+# mimetypes.add_type("text/css", ".css", True)
 mimetypes.add_type("text/html", "", True)
+mimetypes.add_type("text/html", ".css", True)
+
 
 import json
 import os
+from .constants import *
 SIDEBAR_TITLES = json.load(open(BASE_DIR / "config/sidebar.json", "r"))["main"]
 NAV_TITLES = json.load(open(BASE_DIR / "config/navigation.json", "r"))["main"]
 

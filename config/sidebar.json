@@ -2,7 +2,7 @@
     "main": [
         {
             "title": "Accueil",
-            "url": "/page-accueil-valide-eleve.html",
+            "url": "/",
             "icon": "ri-dashboard-line"
         },
         {
