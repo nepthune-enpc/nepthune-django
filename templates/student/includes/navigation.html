@@ -3,8 +3,12 @@
         {% for item in navbar_titles %}
         <li> 
             <!-- <li class="{% if item.url == page.url %}active{% endif %}"> -->
-            <a href=".{{ item.url }}">{{ item.title }}</a>
+            {% if item.sub-menu %}
+            <a href=".{{ item.url }}">{{ item.title }}<i id="icon" class="ri-arrow-right-s-line"></i></a>
+            {% else %}
+                <a href=".{{ item.url }}">{{ item.title }}</a>
         </li>
+        {% endif %}
         {% endfor %}
         <li style="margin-left: 400px;">
             <form class="logout-link" action="{% url 'account:logout' %}" method="POST">
@@ -27,18 +31,61 @@
     }
     .navbar-layout ul li a {
         text-decoration: none;
-        font-family: sans-serif;
+        position: relative;
+        font-family: 'Poppins', sans-serif;
         font-size: 1.2em;
         font-weight:500;
         color:rgb(3, 84, 108);
     }
-    .navbar-layout ul li a:hover {
-        text-decoration: underline 4px;
-        transition: 0.5s;
+ 
+
+    .navbar-layout ul li a:after {    
+        background: none repeat scroll 0 0 transparent;
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        background: rgb(3, 84, 108);
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        width: 0;
     }
 
+    .navbar-layout ul li a:hover:after { 
+        width: 100%; 
+        left: 0; 
+    }
+
+    @media screen and (max-height: 300px) {
+            ul {
+                margin-top: 40px;
+            }
+        }
+
     body {
-        font-family: 'Poppins', ans-serif;
+        font-family: 'Poppins', sans-serif;
         /* font-size: 1.5em; */
     }
+
+    @keyframes rotate {
+        0% {
+            transform: rotate(0);
+        }
+        100% {
+            transform: rotate(90deg);
+        }
+    }
+
+    .navbar-layout .sub-menu-list {
+            padding-left: 20px;
+            display: none;
+            overflow: hidden;
+            z-index: 999;
+            animation-name: rotate;
+            animation-duration: 0.7s;
+    }
+
+
+
 </style>

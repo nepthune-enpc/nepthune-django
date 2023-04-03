@@ -6,7 +6,12 @@
     },
     {
         "title": "Bourses",
-        "url": "/bourses/"
+        "url": "/bourses/",
+        "sub-menu": [
+            "Bourses publiques", 
+            "Bourses privées", 
+            "Toutes les bourses"
+        ]
     },
     {
         "title": "Partenaires",

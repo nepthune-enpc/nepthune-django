@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,6 +44,8 @@ INSTALLED_APPS = [
     'account',
     'sponsors',
     'django_rename_app',
+    'livereload',
+    'django_filters',
     # 'AppNepthune.apps.AppnepthuneConfig',
 ]
 
@@ -86,6 +89,15 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
         'TIME_ZONE' : 'Europe/Paris',
 
+    },
+    'default2': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mydatabase',
+        'USER': 'mydatabaseuser',
+        'PASSWORD': 'mypassword',
+        'TIME_ZONE' : 'Europe/Paris',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
@@ -134,7 +146,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 import mimetypes
 # mimetypes.add_type("text/css", ".css", True)
 mimetypes.add_type("text/html", "", True)
-mimetypes.add_type("text/html", ".css", True)
+mimetypes.add_type("text/css", ".css", True)
 
 
 import json

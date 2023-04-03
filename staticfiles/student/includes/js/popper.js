@@ -1,4 +1,4 @@
-// import { createPopper } from '@popperjs/core';
+import { createPopper } from './@popperjs/core/lib/createPopper.js';
 import { SIDEBAR_EL } from './constants.js';
 
 class Popper {
@@ -13,7 +13,7 @@ class Popper {
   init(reference, popperTarget) {
     this.reference = reference;
     this.popperTarget = popperTarget;
-    this.instance = Popper.createPopper(this.reference, this.popperTarget, {
+    this.instance = createPopper(this.reference, this.popperTarget, {
       placement: 'right',
       strategy: 'fixed',
       resize: true,

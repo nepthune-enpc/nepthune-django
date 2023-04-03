@@ -1,7 +1,15 @@
 from django import forms
-from . import models
+from .models import Student
 # from ..config import constants
 from django.conf import settings
+from django.forms import ModelForm
+
+
+class StudentForm(ModelForm):
+    class Meta:
+        model = Student
+        fields = ['name', 'surname', 'birthday', 'email', 
+                  'address', 'phone', 'studies', 'level']
 
 class NameForm(forms.Form):
     name = forms.CharField(max_length=30, widget=forms.TextInput(attrs={'placeholder': "Prénom", 'style':"width:300px;", 'class':'form-control'}))
@@ -12,6 +20,5 @@ class NameForm(forms.Form):
     phone = forms.CharField(max_length=10, widget=forms.TextInput(attrs={'placeholder': "Téléphone", 'style':"max-width:300px; height:30px;", 'class':'form-control'}))
     studies = forms.ChoiceField(label="Domaine d'études", widget=forms.RadioSelect, choices=settings.ETUDES)
     level = forms.ChoiceField(label="Niveau d'études", widget=forms.RadioSelect, choices=settings.NIVEAU)
-# class CreateScholarship(forms.ModelForm):
-#     class Meta:
+
         

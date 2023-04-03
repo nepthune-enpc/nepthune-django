@@ -20,10 +20,17 @@
       <input type="submit" name="submit" value="Sauvegarder">  
     </form>  -->
     <form action="{% url 'student:index' %}" method="post">
-      <table>
         {% csrf_token %}
-      {{ form }}
-      </table>
+        <ul>
+        {% for field in form %}
+        <li>
+        <div class="fieldWrapper">
+            <!-- {{ field.errors }} -->
+            {{ field.label_tag }}<br>{{ field }}
+        </div></li>
+        {% endfor %}
+      </ul>
+    
       {% if request.GET.next %}
         <input type="hidden" name="next" value="{{ request.GET.next }}">
       {% endif %}
@@ -34,52 +41,42 @@
     <p>No student registered at this id.</p>
 {% endif %}
 <style>
-  .table {
-    font-style: normal;
-  }
-  .form-control {
-    text-align: left;
-    font-style: normal;
-    margin-bottom: 0.5em;
-    position: relative;
-    display:inline-block;
+      body {
+        font-style: medium;
+        font-family: 'Poppins', sans-serif;
+        color: rgba(5, 21, 79, 0.92);
+      }
+      .form-control {
+        font-style: medium;
+        font-family: 'Poppins', sans-serif;
+      }
+      ul {
+        list-style-type: none;
+        font-weight: 600;
+      }
+      ul li .fieldWrapper {
+        font-style: medium;
+        margin-bottom: 10px;
+      }
 
-  }
-  label {
-    text-align: left;
-    font-style: normal;
-    /* display:block;
-    position: relative; */
-    margin-bottom: 50px;
-    padding-left:20px; /* adjust if necessary */
-  }
+      input[type=button], input[type=reset] {
+        margin-top: 40px;
+        margin-left: 40px;
+        font-size: 1em;
+        font-style: bold;
+        color: white;
+        background-color: rgb(20, 115, 192);
+        cursor: pointer;
+        border-radius: 0.4em;
+        margin-left: 600px;
+        margin-top: -50px;
+        padding: 10px 16px;
+      }
 
-  label > span {
-    display:inline-block;
-    position:absolute;
-    left: 10;
-    line-break: strict;
-    
-  }
-  input[type=button], input[type=reset] {
-    margin-top: 40px;
-    margin-left: 40px;
-    font-size: 1em;
-    font-style: bold;
-    color: white;
-    background-color: rgb(20, 115, 192);
-    cursor: pointer;
-    border-radius: 0.4em;
-    margin-left: 600px;
-    margin-top: -70px;
-    padding: 10px 16px;
-  }
-
-  input[type=text], input[type=radio], input[type=email] {
-    margin-top:40px;
-    margin-left: -70px;
-    font-size: 1em;
-  }
+      input[type=text], input[type=radio], input[type=email] {
+        width: 350px;
+        max-width: 350px;
+      } 
   /* input[type="text"] > span {
     display: block;
     position: relative;
