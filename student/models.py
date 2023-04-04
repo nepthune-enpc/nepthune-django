@@ -4,12 +4,7 @@ from django import forms
 from django.forms import ModelForm
 
 # Create your models here.
-
-class Listings(models.Model):
-    pass  
-
-
-print(settings.ETUDES)  
+ 
      
 class Student(models.Model):
     name = models.CharField("Nom", max_length=30)

@@ -43,8 +43,8 @@ INSTALLED_APPS = [
     'student',
     'account',
     'sponsors',
+    'scholarship',
     'django_rename_app',
-    'livereload',
     'django_filters',
     # 'AppNepthune.apps.AppnepthuneConfig',
 ]

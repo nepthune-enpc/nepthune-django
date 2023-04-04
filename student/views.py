@@ -35,7 +35,7 @@ def detail(request, student_id):
     }
     return render(request, 'student/default.html', context)
 
-def infos_perso(request):
+def infos_perso(request):  
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
         form = StudentForm(request.POST)
@@ -56,3 +56,5 @@ def infos_perso(request):
         'form': form,
     }
     return render(request, 'student/modif-infos-persos.html', context)
+
+

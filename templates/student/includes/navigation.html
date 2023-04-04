@@ -1,24 +1,107 @@
 <div class="navbar-layout">
-    <ul>
+    <ul id="deroulant">
         {% for item in navbar_titles %}
-        <li> 
-            <!-- <li class="{% if item.url == page.url %}active{% endif %}"> -->
-            {% if item.sub-menu %}
-            <a href=".{{ item.url }}">{{ item.title }}<i id="icon" class="ri-arrow-right-s-line"></i></a>
-            {% else %}
-                <a href=".{{ item.url }}">{{ item.title }}</a>
+        <li class="{{ item.class }}"> 
+            <a href=".{{ item.url }}">
+                <span class="menu-title">
+                    {{ item.title }}
+                </span>
+            
+            {% if  item.sub_menu  %}
+                <ul>
+                {% for s in item.sub_menu %}
+                    <li class="menu-item">
+                        <a href="#">
+                        <span class="menu-title">{{ s }}</span>
+                        </a>
+                    </li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        </a>
         </li>
-        {% endif %}
         {% endfor %}
         <li style="margin-left: 400px;">
             <form class="logout-link" action="{% url 'account:logout' %}" method="POST">
                 {% csrf_token %}
-                <input type="submit" value="Déconnexion">
+                <input type="submit" id="deconnect" value="Déconnexion">
             </form>
         </li>
     </ul>
 </div>
 <style>
+    #deroulant {
+        padding: 40;
+        margin: 40;  
+        text-align: center;
+    }
+    #deroulant ul {
+
+        position: absolute;
+        list-style:none;
+        text-align: center;
+        width: 220px;
+        top: 50px;
+        z-index: 5; 
+        margin: 0;
+        padding: 0;
+        border-radius: 4px;
+    }
+
+
+    #deroulant li{
+        border-radius: 4px;
+        margin-bottom:4px;
+        margin-right: 80px;
+        padding: 80;
+    }
+
+    #deroulant li li {
+        max-height:0;
+        height:40px;
+        z-index: 5;
+        overflow: hidden;
+        transition: all .5s;
+        border-radius: 2px;
+        /* background: #444; */
+        box-shadow: none;
+        border: none;
+        margin: 0;
+        }
+#deroulant a {
+    text-decoration: none;
+    position: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2em;
+    font-weight:500;
+    color:rgb(3, 84, 108);
+}
+#deroulant ul li a, #deroulant li:hover li a {
+  font-size:1em;
+    padding: 40;
+    margin: 40;
+}
+#deroulant li:hover {
+top: 0;
+}
+/* #deroulant li li:hover {
+   background: #93c4e0;
+} */
+#deroulant ul li:last-child {
+   border-radius: 2px 2px 2px 2px;
+   border:none;
+}
+
+#deroulant li:hover ul {
+   display: block; 
+   background: #93c4e0;
+}
+
+#deroulant li:hover ul li {
+  max-height: 5em;
+}
+
+
     .navbar-layout  {
         display: flex;
     }
@@ -26,10 +109,10 @@
         display: flex;
         list-style: none;
     }
-    .navbar-layout ul li {
+    .navbar-layout ul .menu-item {
         margin-right: 60px;
     }
-    .navbar-layout ul li a {
+    .navbar-layout ul .menu-item a {
         text-decoration: none;
         position: relative;
         font-family: 'Poppins', sans-serif;
@@ -37,25 +120,38 @@
         font-weight:500;
         color:rgb(3, 84, 108);
     }
+
  
 
-    .navbar-layout ul li a:after {    
-        background: none repeat scroll 0 0 transparent;
+    .navbar-layout ul .menu-item a:after {    
+        background: none repeat scroll 0 0 transparent; 
         bottom: 0;
         content: "";
         display: block;
         height: 2px;
-        left: 50%;
+        left: 0%;
         position: absolute;
         background: rgb(3, 84, 108);
-        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        transition: width 0.3s ease 0s, left .3s ease 0s;
         width: 0;
     }
 
-    .navbar-layout ul li a:hover:after { 
+    .navbar-layout ul .menu-item a:hover::after { 
         width: 100%; 
         left: 0; 
+        content: "";
+        display: table;
+        clear: both;
     }
+
+    .navbar-layout ul .menu-title a {
+            font-size: 0.9em;
+            overflow: hidden;
+            /* text-overflow: ellipsis; */
+            white-space: nowrap;
+            flex-grow: 1;
+            transition: color 0.3s;
+          }
 
     @media screen and (max-height: 300px) {
             ul {
@@ -77,15 +173,30 @@
         }
     }
 
-    .navbar-layout .sub-menu-list {
-            padding-left: 20px;
-            display: none;
-            overflow: hidden;
-            z-index: 999;
-            animation-name: rotate;
-            animation-duration: 0.7s;
+    #deconnect {
+        background-color: white;
+        cursor: pointer;
+        color:rgb(3, 84, 108);
+        font-size: 1em;
+        font-weight: 500;
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        position: relative;
+        border:none;
+        margin-left: -100px;
     }
 
-
-
+    input[type=button], input[type=reset] {
+        margin-top: 40px;
+        margin-left: 40px;
+        font-size: 1em;
+        font-style: bold;
+        color: white;
+        background-color: rgb(20, 115, 192);
+        cursor: pointer;
+        border-radius: 0.4em;
+        margin-left: 600px;
+        margin-top: -50px;
+        padding: 10px 16px;
+      }
 </style>

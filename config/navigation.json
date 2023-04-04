@@ -2,12 +2,14 @@
     "main": [
         {
        "title": "Calendrier",
-       "url": "/calendrier/"
+       "url": "/calendrier/",
+       "class": "menu-item"
     },
     {
         "title": "Bourses",
         "url": "/bourses/",
-        "sub-menu": [
+        "class": "menu-item sub-menu",
+        "sub_menu": [
             "Bourses publiques", 
             "Bourses privées", 
             "Toutes les bourses"
@@ -15,7 +17,8 @@
     },
     {
         "title": "Partenaires",
-        "url": "/partenaires/"
+        "url": "/partenaires/",
+        "class": "menu-item"
     }
 ]
 }
