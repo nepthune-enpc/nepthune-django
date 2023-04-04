@@ -1,3 +1,5 @@
 .vscode/
 *.sqlite
 node_modules
+__pycache__/
+*.pyc
