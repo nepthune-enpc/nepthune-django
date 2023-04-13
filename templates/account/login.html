@@ -3,7 +3,7 @@
 {% block content %} 
 <div class="vertical-center">
   <div class="container">
-    <h1>S'authentifier</h1>
+    <h1 style="margin-bottom: 40px;">S'authentifier</h1>
     <form class="site-form" action="{% url 'account:login' %}" method="post">
       {% csrf_token %}
       <ul>
@@ -33,6 +33,9 @@
         font-family: 'Poppins', sans-serif;
         color: rgba(5, 21, 79, 0.92);
       }
+      p {
+        font-weight: 500;
+      }
       ul {
         text-align: left;
         font-style: normal;
@@ -42,7 +45,7 @@
       }
       ul li {
         text-align: left;
-        font-style: medium;
+        font-weight: 500;
         margin-bottom: 1.5em;
         position: relative;
         display: block;
@@ -57,7 +60,7 @@
         margin-bottom: 10px;
       } */
 
-      input[type=button], input[type=reset] input[type=submit] {
+      input[type=button], input[type=reset], input[type=submit] {
         margin-top: 40px;
         margin-left: 40px;
         font-size: 1em;
@@ -66,9 +69,9 @@
         background-color: rgb(20, 115, 192);
         cursor: pointer;
         border-radius: 0.4em;
-        margin-left: 600px;
-        margin-top: -50px;
-        padding: 10px 16px;
+        margin-left: 0px;
+        margin-top: 40px;
+        padding: 10px 126px;
       }
     </style>   
 {% endblock %}

@@ -34,7 +34,7 @@
   align-items: center;
   height: 50px;
   padding: 0 20px;
-  color: #7d84ab;
+  color: var(--text-color);
 }
 .layout .sidebar .menu .menu-item a .menu-icon {
   font-size: 1.2rem;
@@ -67,16 +67,16 @@
 }
 
 .layout .sidebar .menu .menu-item a:hover .menu-title {
-  color: #dee2ec;
+  color: var(--secondary-text-color);
 }
 .layout .sidebar .menu .menu-item a:hover .menu-icon {
-  color: #dee2ec;
+  color:var(--secondary-text-color);
 }
 .layout .sidebar .menu .menu-item a:hover .menu-icon i {
   animation: swing ease-in-out 0.5s 1 alternate;
 }
 .layout .sidebar .menu .menu-item a:hover::after {
-  border-color: #dee2ec !important;
+  border-color: var(--secondary-text-color) !important;
 }
 .layout .sidebar .menu .menu-item.sub-menu {
   position: relative;
@@ -97,25 +97,25 @@
   z-index: 999;
 }
 .layout .sidebar .menu .menu-item.sub-menu.open > a {
-  color: #dee2ec;
+  color: var(--secondary-text-color);
 }
 .layout .sidebar .menu .menu-item.sub-menu.open > a::after {
   transform: rotate(45deg);
 }
 .layout .sidebar .menu .menu-item.active > a .menu-title {
-  color: #dee2ec;
+  color: var(--secondary-text-color);
 }
 .layout .sidebar .menu .menu-item.active > a::after {
-  border-color: #dee2ec;
+  border-color: var(--secondary-text-color);
 }
 .layout .sidebar .menu .menu-item.active > a .menu-icon {
-  color: #dee2ec;
+  color: var(--secondary-text-color);
 }
 .layout .sidebar .menu > ul > .sub-menu > .sub-menu-list {
-  background-color: #0b1a2c;
+  background-color: var(--secondary-bg-color);
 }
 .layout .sidebar .menu.icon-shape-circle .menu-item a .menu-icon, .layout .sidebar .menu.icon-shape-rounded .menu-item a .menu-icon, .layout .sidebar .menu.icon-shape-square .menu-item a .menu-icon {
-  background-color: #0b1a2c;
+  background-color: var(--secondary-bg-color);
 }
 .layout .sidebar .menu.icon-shape-circle .menu-item a .menu-icon {
   border-radius: 50%;
@@ -151,7 +151,7 @@
   transform: translateY(-50%);
 }
 .layout .sidebar.collapsed .menu > ul > .menu-item.sub-menu > a:hover::after {
-  background-color: #dee2ec;
+  background-color: var(--secondary-text-color);
 }
 .layout .sidebar.collapsed .menu > ul > .menu-item.sub-menu > .sub-menu-list {
   transition: none !important;
@@ -161,13 +161,13 @@
   display: block !important;
 }
 .layout .sidebar.collapsed .menu > ul > .menu-item.active > a::after {
-  background-color: #dee2ec;
+  background-color: var(--secondary-bg-color);
 }
-.layout .sidebar.has-bg-image .menu.icon-shape-circle .menu-item a .menu-icon, .layout .sidebar.has-bg-image .menu.icon-shape-rounded .menu-item a .menu-icon, .layout .sidebar.has-bg-image .menu.icon-shape-square .menu-item a .menu-icon {
-  background-color:#0b1a2c;
+.layout .sidebar.has-bg-image .menu.icon-shape-circle .menu-item a .menu-icon,  .menu.icon-shape-rounded .menu-item a .menu-icon, .layout .sidebar.has-bg-image .menu.icon-shape-square .menu-item a .menu-icon {
+  background-color:rgba(var(--secondary-bg-color), 0.6);
 }
 .layout .sidebar.has-bg-image:not(.collapsed) .menu > ul > .sub-menu > .sub-menu-list {
-  background-color:#0b1a2c;
+  background-color:rgba(var(--secondary-bg-color), 0.6);
 }
 .layout.rtl .sidebar .menu .menu-item a .menu-icon {
   margin-left: 10px;

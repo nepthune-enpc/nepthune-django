@@ -1,5 +1,5 @@
 from django import forms
-from .models import Student
+from .models import *
 # from ..config import constants
 from django.conf import settings
 from django.forms import ModelForm
@@ -7,9 +7,24 @@ from django.forms import ModelForm
 
 class StudentForm(ModelForm):
     class Meta:
-        model = Student
+        model = StudentInformation
         fields = ['name', 'surname', 'birthday', 'email', 
                   'address', 'phone', 'studies', 'level']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'surname': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
+        }
+        
+class StudentFilterForm(ModelForm):
+    class Meta:
+        model = StudentFilter
+        fields = ['amount', 'payment_date', 'nb_payments']
+        # widgets = {'nb_payments': forms.MultipleChoiceField(choices=zip(map(str, range(1, 5)), range(1, 5)),
+        #                                     required=False, 
+        #                                     label="Nombre limite de Versements",
+        #                                     widget=forms.RadioSelect) }
+        
 
 class NameForm(forms.Form):
     name = forms.CharField(max_length=30, widget=forms.TextInput(attrs={'placeholder': "Prénom", 'style':"width:300px;", 'class':'form-control'}))

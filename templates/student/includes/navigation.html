@@ -21,7 +21,7 @@
         </a>
         </li>
         {% endfor %}
-        <li style="margin-left: 400px;">
+        <li style="float:right; margin-left: 400px;">
             <form class="logout-link" action="{% url 'account:logout' %}" method="POST">
                 {% csrf_token %}
                 <input type="submit" id="deconnect" value="Déconnexion">
@@ -36,7 +36,6 @@
         text-align: center;
     }
     #deroulant ul {
-
         position: absolute;
         list-style:none;
         text-align: center;
@@ -104,12 +103,15 @@ top: 0;
 
     .navbar-layout  {
         display: flex;
+        position: relative;
     }
     .navbar-layout ul {
         display: flex;
         list-style: none;
+        position: relative;
     }
     .navbar-layout ul .menu-item {
+        float: left;
         margin-right: 60px;
     }
     .navbar-layout ul .menu-item a {

@@ -1,5 +1,3 @@
-// import "{% static 'student/style.css' %}";
-import '../../../../static/student/style.css';
 import { slideToggle, slideUp, slideDown } from './slide.js';
 import {
   ANIMATION_DURATION,
@@ -8,7 +6,7 @@ import {
   SIDEBAR_EL,
 } from './constants.js';
 import Poppers from './poppers.js';
-
+// import '../../../../static/student/style.css';
 const PoppersInstance = new Poppers();
 
 /**

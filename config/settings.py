@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'student',
     'account',
     'sponsors',
-    'scholarship',
+    # 'scholarship',
     'django_rename_app',
     'django_filters',
     # 'AppNepthune.apps.AppnepthuneConfig',
@@ -88,8 +88,17 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
         'TIME_ZONE' : 'Europe/Paris',
-
+        'USER': 'nepthune',
+        'PASSWORD': 'A2A2A2A2',
+        },
+    'student': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+        'TIME_ZONE' : 'Europe/Paris',
+        'USER': 'nepthune',
+        'PASSWORD': 'A2A2A2A2',
     },
+       
     'default2': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'mydatabase',
@@ -100,6 +109,8 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+DATABASE_ROUTERS = [Path('./config/auth_routers.py')]
 
 
 # Password validation
@@ -143,10 +154,10 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-import mimetypes
-# mimetypes.add_type("text/css", ".css", True)
-mimetypes.add_type("text/html", "", True)
-mimetypes.add_type("text/css", ".css", True)
+if DEBUG:
+    import mimetypes
+    mimetypes.add_type("text/css", ".css", True)
+    mimetypes.add_type("application/javascript", ".js", True)
 
 
 import json

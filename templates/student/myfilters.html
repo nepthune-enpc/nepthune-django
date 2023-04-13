@@ -1,9 +1,9 @@
 {% extends 'student/base.html' %}
 
 {% block content %}
-<h1 style="margin-bottom: 0.5em; font-family: 'Poppins', sans-serif;">Vos informations personnelles</h1>
+<h1 style="margin-bottom: 0.5em; font-family: 'Poppins', sans-serif;">Modifier Mes Filtres</h1>
 {% if form %}
-    <form action="{% url 'student:index' %}" method="post">
+    <form action="{% url 'student:filtres' %}" method="post">
         {% csrf_token %}
         <ul>
         {% for field in form %}

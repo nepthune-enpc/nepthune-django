@@ -12,31 +12,33 @@
   <link href="https://unpkg.com/css-pro-layout/dist/css/css-pro-layout.min.css" rel="stylesheet" />
   <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script> -->
   <!-- Add additional CSS in static file -->
-  <link rel="stylesheet" type="text/css" href="{% static 'student/style.css' %}"/>
+  <link  href="{% static 'student/style.css' %}" rel="stylesheet" />
   <!-- type='text/css' -->
 </head>
 <body>
-  <div class="layout has-sidebar fixed-sidebar"
-          id="current-sidebar" style="transition: transform 1s;">
-    <aside class="sidebar break-point-sm">
-      <a id="btn-collapse" class="sidebar-collapser"><i id="icon" class="ri-arrow-left-s-line"></i></a>
-
+  <div class="layout has-sidebar fixed-sidebar fixed-header" id="current-sidebar">
+          <!-- style="transition: transform 1s;"> -->
+    <aside id="sidebar" class="sidebar break-point-lg has-bg-image">
+      <!-- <a id="btn-collapse" class="sidebar-collapser"><i id="icon" class="ri-arrow-left-s-line"></i></a> -->
       <!-- {% block sidebar %} -->
       {% include "./includes/sidebar.html" with sidebar_titles=sidebar_contents %}    
      <!-- {% endblock %} -->
-     </aside>
-      <!-- <div id="overlay" class="overlay"></div> -->
+    </aside>
+    <div id="overlay" class="overlay"></div>
       <div class="layout">
         <header class="header">
           {% include "./includes/navigation.html" with navbar_titles=navbar_contents%}
         </header>
         <main class="content">
+          <a id="btn-toggle" href="#" class="sidebar-toggler break-point-lg">
+            <i class="ri-menu-line ri-xl"></i>
+          </a>
           {% block content %}{% endblock %}
         </main>
-        <div id="overlay" class="overlay"></div>
+        <div class="overlay"></div>
       </div>
   </div>
+</body>
   <script type="module" src="{% static 'student/includes/js/@popperjs/core/lib/createPopper.js' %}"></script>
   <script type="module" src="{% static 'student/includes/js/sidebar.js' %}"></script>
-</body>
 </html>

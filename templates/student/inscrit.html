@@ -1,13 +1,13 @@
 {% extends 'student/base.html' %}
 
 {% block content %}
-{% if student %}
-    <ul>
-        <li>{{ student.name }}</li>
-        <li>{{ student.surname }}</li>
-        <li>{{ student.birthday }}</li>
-    </ul>
-{% else %}
-    <p>No student registered at this id.</p>
-{% endif %}
+    {% if student %}
+        <ul>
+            {% for stud in student %}
+                <li> {{ stud.surname }} {{ stud.name }}: {{ stud.birthday }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No student registered at this id.</p>
+    {% endif %}
 {% endblock %}

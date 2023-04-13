@@ -1,5 +1,5 @@
-
-<div class="sidebar-layout" id="sidebar-layout">
+<a id="btn-collapse" class="sidebar-collapser"><i id="icon" class="ri-arrow-left-s-line"></i></a>
+<div class="sidebar-layout">
   <!-- Account header -->
   <div class="sidebar-header">
     <div class="pro-sidebar-logo">
@@ -10,7 +10,7 @@
   <div class="sidebar-content">
     <nav class="menu open-current-submenu">
       <ul>
-        <li class="menu-header"><span>GENERAL</span></li>
+        <li class="menu-header"><span> GENERAL </span></li>
         <li class="menu-item">
         {% for item in sidebar_titles %}
         <a href=".{{ item.url }}">
@@ -25,4 +25,5 @@
   </div>
 </div>
 {% load static %}
-<!-- <script type="module" src="{% static 'student/includes/js/sidebar.js' %}"></script> -->
+<script type="module" src="{% static 'student/includes/js/sidebar.js' %}"></script>
+<!-- <link rel="stylesheet"  href="{% static 'student/style.css' %}"/> -->

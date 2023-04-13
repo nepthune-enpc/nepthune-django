@@ -7,19 +7,20 @@ from django.http import Http404
 from django.conf import settings
 from django.http import HttpResponseRedirect
 
-from .models import Student
+from .models import *
 from .forms import *
 
 @login_required(login_url="/account/login/")
 def index(request):
     if request.user.is_authenticated:
-        print("\n You are logged as {}\n".format(request.user))
-        latest_student_list = Student.objects.order_by('-birthday')[:5]
+        print("\n You are logged as {}\n".format(request.user), "\n", request)
+        print("\n  \n", request.__dict__)
+        latest_student_list = StudentInformation.objects.order_by('-birthday')[:5]
+        latest_student_list = StudentName.objects.order_by('-birthday')[:5]
         context = {
             'sidebar_contents': settings.SIDEBAR_TITLES,
             'navbar_contents': settings.NAV_TITLES,
-            'latest_student_list': latest_student_list,
-            
+            'student': latest_student_list,   
         }
         return render(request, 'student/inscrit.html', context)
 
@@ -42,7 +43,7 @@ def infos_perso(request):
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
-            # ...
+            form.save()
             # redirect to a new URL:
             return HttpResponseRedirect('/thanks/')
 
@@ -56,5 +57,33 @@ def infos_perso(request):
         'form': form,
     }
     return render(request, 'student/modif-infos-persos.html', context)
+
+
+def student_filters_view(request):
+    
+    # On rentre nos preferences pour la première fois
+    if request.method == "POST":
+        form = StudentFilterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/thanks/')
+    else:
+        form = StudentFilterForm()
+    context = {
+        'sidebar_contents': settings.SIDEBAR_TITLES,
+        'navbar_contents': settings.NAV_TITLES,
+        'form': form,
+    }
+    return render(request, 'student/myfilters.html', context)
+
+
+
+#################################################################
+#               SCHOLARSHIPS
+################################################################
+
+
+def scholarships_view(request):
+    pass
 
 
