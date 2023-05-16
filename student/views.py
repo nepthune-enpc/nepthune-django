@@ -26,8 +26,8 @@ def index(request):
 
 def detail(request, student_id):
     try:
-        context_student =Student.objects.get(id=student_id)
-    except Student.DoesNotExist:
+        context_student = StudentInformation.get(id=student_id)
+    except StudentInformation.DoesNotExist:
         raise Http404("Cette élève n'est pas inscrit dans la BDD")
     context = {
         'sidebar_contents': settings.SIDEBAR_TITLES,
@@ -36,10 +36,11 @@ def detail(request, student_id):
     }
     return render(request, 'student/default.html', context)
 
-def infos_perso(request):  
+def infos_perso(request):
+    student_initial = StudentInformation.objects.get(id=request.id)
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
-        form = StudentForm(request.POST)
+        form = StudentForm(request.POST, instance=student_initial)
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
@@ -49,14 +50,14 @@ def infos_perso(request):
 
     # if a GET (or any other method) we'll create a blank form
     else:
-        form = StudentForm()
+        form = StudentForm(instance=student_initial)
         
     context = {
         'sidebar_contents': settings.SIDEBAR_TITLES,
         'navbar_contents': settings.NAV_TITLES,
         'form': form,
     }
-    return render(request, 'student/modif-infos-persos.html', context)
+    return render(request, 'student/infos-persos.html', context)
 
 
 def student_filters_view(request):
@@ -76,7 +77,11 @@ def student_filters_view(request):
     }
     return render(request, 'student/myfilters.html', context)
 
+def modif_infos_perso(request):
+    pass
 
+def notifications_view(request):
+    pass
 
 #################################################################
 #               SCHOLARSHIPS

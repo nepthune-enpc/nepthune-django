@@ -66,3 +66,13 @@ def index(request):
         
     }
     return render(request, 'account/authentification.html', context)
+
+
+def project_view(request):
+    return render(request, 'account/le_projet.html')
+
+def purpose_view(request):
+    return render(request, 'account/a_propos.html')
+
+def act_view(request):
+    return render(request, 'account/agir.html')

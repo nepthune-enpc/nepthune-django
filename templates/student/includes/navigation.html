@@ -21,20 +21,27 @@
         </a>
         </li>
         {% endfor %}
-        <li style="float:right; margin-left: 400px;">
+        <li style="float:right;">
             <form class="logout-link" action="{% url 'account:logout' %}" method="POST">
                 {% csrf_token %}
-                <input type="submit" id="deconnect" value="Déconnexion">
+                <input class="right" type="submit" id="deconnect" value="Déconnexion">
             </form>
         </li>
     </ul>
 </div>
 <style>
+    #deconnect {
+        float: right;
+        position: relative;
+        text-align: right;
+    }
+
     #deroulant {
         padding: 40;
         margin: 40;  
         text-align: center;
     }
+    
     #deroulant ul {
         position: absolute;
         list-style:none;
@@ -53,6 +60,7 @@
         margin-bottom:4px;
         margin-right: 80px;
         padding: 80;
+        float: left;
     }
 
     #deroulant li li {
@@ -67,38 +75,48 @@
         border: none;
         margin: 0;
         }
-#deroulant a {
-    text-decoration: none;
-    position: block;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.2em;
-    font-weight:500;
-    color:rgb(3, 84, 108);
-}
-#deroulant ul li a, #deroulant li:hover li a {
-  font-size:1em;
-    padding: 40;
-    margin: 40;
-}
-#deroulant li:hover {
-top: 0;
-}
-/* #deroulant li li:hover {
-   background: #93c4e0;
-} */
-#deroulant ul li:last-child {
-   border-radius: 2px 2px 2px 2px;
-   border:none;
-}
+    #deroulant a {
+        text-decoration: none;
+        position: block;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.2em;
+        font-weight:500;
+        color:rgb(3, 84, 108);
+    }
 
-#deroulant li:hover ul {
-   display: block; 
-   background: #93c4e0;
-}
+    /* #deroulant li a {
+        text-decoration: none;
+        display: block;
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.2em;
+        font-weight:500;
+        color:rgb(3, 84, 108);
+    } */
+    #deroulant ul li a, #deroulant li:hover li a {
+    font-size:1em;
+        padding: 40;
+        margin: 40;
+    }
+    #deroulant li:hover {
+    top: 0;
+    }
+    /* #deroulant li li:hover {
+    background: #93c4e0;
+    } */
+    #deroulant ul li:last-child {
+    border-radius: 2px 2px 2px 2px;
+    border:none;
+    }
 
-#deroulant li:hover ul li {
-  max-height: 5em;
-}
+    #deroulant li:hover ul {
+    display: block; 
+    background: #93c4e0;
+    }
+
+    #deroulant li:hover ul li {
+    max-height: 5em;
+    }
 
 
     .navbar-layout  {
@@ -109,12 +127,14 @@ top: 0;
         display: flex;
         list-style: none;
         position: relative;
+        float: left;
     }
-    .navbar-layout ul .menu-item {
+
+    .navbar-layout.menu-item {
         float: left;
         margin-right: 60px;
     }
-    .navbar-layout ul .menu-item a {
+    .navbar-layout.menu-item a {
         text-decoration: none;
         position: relative;
         font-family: 'Poppins', sans-serif;
@@ -123,9 +143,7 @@ top: 0;
         color:rgb(3, 84, 108);
     }
 
- 
-
-    .navbar-layout ul .menu-item a:after {    
+    .navbar-layout.menu-item a:after {    
         background: none repeat scroll 0 0 transparent; 
         bottom: 0;
         content: "";
@@ -156,8 +174,21 @@ top: 0;
           }
 
     @media screen and (max-height: 300px) {
-            ul {
+            .navbar-layout ul {
                 margin-top: 40px;
+                margin-right: 10px;
+            }
+        }
+
+    @media screen and (max-width: 600px) {
+            #deconnect {
+                float: right;
+                width: 100%;
+                margin-right: 10px;
+            }
+            .navbar-layout ul .menu-item  {
+                /* margin-top: 40px; */
+                margin: 10px;
             }
         }
 
@@ -179,16 +210,18 @@ top: 0;
         background-color: white;
         cursor: pointer;
         color:rgb(3, 84, 108);
-        font-size: 1em;
+        font-size: 1.2em;
         font-weight: 500;
         font-family: 'Poppins', sans-serif;
-        display: flex;
-        position: relative;
+        display: block;
+        position: block;
         border:none;
-        margin-left: -100px;
+        width: 100%;
+        margin-left: 300px;
+        float: right;
     }
 
-    input[type=button], input[type=reset] {
+    /* input[type=button], input[type=reset] {
         margin-top: 40px;
         margin-left: 40px;
         font-size: 1em;
@@ -200,5 +233,5 @@ top: 0;
         margin-left: 600px;
         margin-top: -50px;
         padding: 10px 16px;
-      }
+      } */
 </style>

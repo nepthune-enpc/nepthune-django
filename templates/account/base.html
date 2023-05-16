@@ -15,12 +15,12 @@
     <body>
         <header class="wrapper">
             <img style="width: 200px; margin-top: 40px; margin-left: 40px;" src="{% static 'nepthune_logo.png' %}">
-        {% block title %}<h1 style="margin-top: -40px;font-size: 2em;">Bienvenue !</h1>{% endblock %}
+        {% block title %}<h1 style="margin-top: -80px;font-size: 2em;">Bienvenue !</h1>{% endblock %}
         </header>
         <div class="center">
-          <a href="#">Le projet</a>
-          <a href="#">Agir avec nous</a>
-          <a href="#">A propos</a>
+            <a type="link" href="{% url 'account:projet' %}">Le projet</a>
+            <a type="link" href="{% url 'account:agir' %}">Agir avec nous</a>
+            <a type="link" href="{% url 'account:propos' %}">A propos</a>
         </div>
         <div class="wrapper">
             {% block content %}
@@ -35,7 +35,8 @@
     .center {
       margin-top: 80px;
       display: flex;
-      
+      position: relative;
+
       justify-content: center;
       align-items: center;
       /* height: 100px; */
@@ -51,12 +52,31 @@
       font-size: 1.2em;
       font-weight: 600;
       text-decoration:none;
+      margin-top: -30px;
+    }
+
+    a[type=link] {
+      background-color: white;
+      border: none;
+      color: #0e489d;
+      text-align: center;
+      margin-right: 100px;
+      margin-left : 100px;
+      font-size: 1.2em;
+      font-weight: 600;
+      text-decoration:none;
+      margin-top: -30px;
+    }
+
+    a[type=link]:hover {
+      opacity: 0.8;
     }
     .container {
-      top: 50px;
-        width: 500px;
-        max-width: 500px;
-        height: 400px; 
+        top: 80px;
+        width: 25vw;
+        max-width: 50vw;
+        height: 50vh; 
+        max-height: 50vh;
         margin: 1rem;
         padding: 2rem;
         box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
@@ -65,7 +85,7 @@
         justify-content: center;
         text-align: center;  
         align-items: center;
-        display: block;
+        /* display: block; */
         position: relative;
     }
 
@@ -74,7 +94,7 @@
         outline: none;
         color: #fff;
         background-color: #0e489d;
-        padding: 0.95rem 1.5rem;
+        padding: 0.95rem 0.5rem;
         cursor: pointer;
         border-radius: 0.312rem;
         font-size: 1.2rem;
@@ -82,7 +102,9 @@
         width: 300px;
         text-align: center;
         align-items: center;
-        position: absolute;
+        position: relative;
+        margin-top: 10px;
+        
   }
 
   .form__button:hover {
@@ -106,5 +128,10 @@
     -ms-transform: translate(50%, -50%);
     transform: translate(-50%, -50%);
   }
+
+  /* button {
+    position: absolute;
+    margin-top: 30px;
+  } */
 
 </style>

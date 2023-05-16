@@ -7,7 +7,7 @@ from django.forms import ModelForm
  
      
 class StudentName(models.Model):
-    name = models.CharField("Prénom", max_length=30)
+    name = models.CharField("Prenom", max_length=30)
     surname = models.CharField("Nom", max_length=30)
     birthday = models.DateTimeField('Date de Naissance')
     

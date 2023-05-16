@@ -45,8 +45,14 @@ a {
   text-decoration: none;
 }
 
-@media (max-width: 992pxt) {
+@media (max-width: 992px) {
   #btn-collapse {
+    display: none;
+  }
+  #btn-toggle {
+    display: none;
+  }
+  #icon {
     display: none;
   }
 }
