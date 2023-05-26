@@ -22,11 +22,9 @@
             <a type="link" href="{% url 'account:agir' %}">Agir avec nous</a>
             <a type="link" href="{% url 'account:propos' %}">A propos</a>
         </div>
-        <div class="wrapper">
             {% block content %}
             {% endblock %}
-        </div>
-    </body>
+          </body>
 </html>
 <style>
     body {
@@ -85,8 +83,8 @@
         justify-content: center;
         text-align: center;  
         align-items: center;
-        /* display: block; */
-        position: relative;
+        /* display: static; */
+        position: static; 
     }
 
     .form__button {
@@ -123,7 +121,7 @@
   .vertical-center {
     margin: 0;
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     -ms-transform: translate(50%, -50%);
     transform: translate(-50%, -50%);
