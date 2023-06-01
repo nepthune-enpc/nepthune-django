@@ -14,7 +14,8 @@ from .forms import *
 def index(request):
     if request.user.is_authenticated:
         print("\n You are logged as {}\n".format(request.user), "\n", request)
-        print("\n  \n", request.__dict__)
+        print("\n  \n", request.__dict__, "\n \n")
+        print("\n  \n", request.__dict__.keys(), "\n \n")
         latest_student_list = StudentInformation.objects.order_by('-birthday')[:5]
         latest_student_list = StudentName.objects.order_by('-birthday')[:5]
         context = {
@@ -23,6 +24,15 @@ def index(request):
             'student': latest_student_list,   
         }
         return render(request, 'student/inscrit.html', context)
+    
+def base(request):
+    context = {
+            'sidebar_contents': settings.SIDEBAR_TITLES,
+            'navbar_contents': settings.NAV_TITLES,  
+        }
+    return render(request, 'student/tests.html', context)
+    
+    
 
 def detail(request, student_id):
     try:
@@ -37,10 +47,13 @@ def detail(request, student_id):
     return render(request, 'student/default.html', context)
 
 def infos_perso(request):
-    student_initial = StudentInformation.objects.get(id=request.id)
+    student_initial = StudentInformation.objects.get(username=request.user)
     if request.method == 'POST':
+        if student_initial is not None:
         # create a form instance and populate it with data from the request:
-        form = StudentForm(request.POST, instance=student_initial)
+            form = StudentForm(request.POST)
+        else:
+            form = StudentForm(request.POST, instance=student_initial)
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
@@ -81,7 +94,7 @@ def modif_infos_perso(request):
     pass
 
 def notifications_view(request):
-    pass
+    return render(request, 'student/notifications.html')
 
 #################################################################
 #               SCHOLARSHIPS

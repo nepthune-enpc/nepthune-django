@@ -8,8 +8,8 @@ from django.forms import ModelForm
 class StudentForm(ModelForm):
     class Meta:
         model = StudentInformation
-        fields = ['name', 'surname', 'birthday', 'email', 
-                  'address', 'phone', 'studies', 'level']
+        fields = ['name', 'surname', 'birthday', 'email', 'nationality', 
+                  'address', 'phone', 'studies', 'level', 'username']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
             'surname': forms.TextInput(attrs={'class': 'form-control'}),

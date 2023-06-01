@@ -1,10 +1,29 @@
-@import "./css-pro-layout.css";
+/* @import "./css-pro-layout.css"; */
 @import "./css-pro-layout.min.css";
 @import "./variables.css";
 @import "./poppins.css";
 @import "./sidebar.css";
 @import "./layout.css";
 @import "./menu.css";
+
+@keyframes swing {
+  0%, 30%, 50%, 70%, 100% {
+    transform: rotate(0deg);
+ }
+  10% {
+    transform: rotate(10deg);
+ }
+  40% {
+    transform: rotate(-10deg); 
+ }
+  60% {
+    transform: rotate(5deg);
+ }
+  80% {
+    transform: rotate(-5deg);
+ }
+}
+
 
 :root {
   --text-color: #7d84ab;
@@ -182,8 +201,4 @@ a {
   position: fixed;
   right: 20px;
   top: 20px;
-}
-
-a {
-  text-decoration: none;
 }

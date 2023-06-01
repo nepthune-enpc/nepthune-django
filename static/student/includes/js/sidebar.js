@@ -6,7 +6,7 @@ import {
   SIDEBAR_EL,
 } from './constants.js';
 import Poppers from './poppers.js';
-import '../../../../static/student/style.css';
+/* import '../../../../static/student/test_style.css' assert { type: 'css' }; */
 const PoppersInstance = new Poppers();
 
 /**

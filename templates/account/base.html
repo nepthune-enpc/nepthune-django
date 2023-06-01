@@ -9,19 +9,22 @@
     <link rel="shortcut icon" type="image/ico" href="{% static 'student/favicon.ico' %}" />
     <link href="https://unpkg.com/css-pro-layout/dist/css/css-pro-layout.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> -->
+
     <!-- Add additional CSS in static file -->
     <!-- <link rel="stylesheet" href="{% static 'account/style.css' %}"> -->
     </head>
     <body>
         <header class="wrapper">
-            <img style="width: 200px; margin-top: 40px; margin-left: 40px;" src="{% static 'nepthune_logo.png' %}">
+            <img style="width: 200px; margin-top: 10px; margin-left: 40px;" src="{% static 'nepthune_logo.png' %}">
         {% block title %}<h1 style="margin-top: -80px;font-size: 2em;">Bienvenue !</h1>{% endblock %}
-        </header>
+        
         <div class="center">
             <a type="link" href="{% url 'account:projet' %}">Le projet</a>
             <a type="link" href="{% url 'account:agir' %}">Agir avec nous</a>
             <a type="link" href="{% url 'account:propos' %}">A propos</a>
         </div>
+      </header>
             {% block content %}
             {% endblock %}
           </body>
@@ -31,7 +34,7 @@
         font-family: 'Poppins', sans-serif;
     }
     .center {
-      margin-top: 80px;
+      margin-top: 50px;
       display: flex;
       position: relative;
 
@@ -81,10 +84,10 @@
         border-radius: var(--border-radius);
         background: #ffffff;
         justify-content: center;
-        text-align: center;  
-        align-items: center;
+        /* text-align: center;   */
+        /* align-items: center; */
         /* display: static; */
-        position: static; 
+        /* position: static;  */
     }
 
     .form__button {
@@ -131,5 +134,7 @@
     position: absolute;
     margin-top: 30px;
   } */
+
+ 
 
 </style>

@@ -3,6 +3,7 @@ from django.conf import settings
 from django import forms
 from django.forms import ModelForm
 
+
 # Create your models here.
  
      
@@ -20,8 +21,10 @@ class StudentName(models.Model):
         return '%s %s' % (self.name, self.surname)
     
 class StudentInformation(StudentName):
+    username = models.CharField("Username",
+                                   max_length=50, default="")
     nationality = models.CharField("Nationalite",
-                                   max_length=50)
+                                   max_length=50, default="française")
     email = models.EmailField("Adresse mail", 
                               max_length=30, 
                               unique=True)

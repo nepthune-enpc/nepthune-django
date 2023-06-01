@@ -10,17 +10,17 @@ from django.template import loader
 from django.http import Http404
 from django.conf import settings
 from django.views.decorators.csrf import requires_csrf_token,  csrf_protect, csrf_exempt
+from .forms import SignupForm
 
 
 def first_page_view(request):
     return render(request, 'account/authenticate.html')
 
-
-# @requires_csrf_token
-@csrf_exempt
+# @csrf_exempt
+@requires_csrf_token
 def signup_view(request):
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = SignupForm(request.POST)
         if form.is_valid():
             # Save to the BDD
             user = form.save()
@@ -28,14 +28,21 @@ def signup_view(request):
             login(user, request)
             return redirect("student:index")
     else:
-        form = UserCreationForm()
+        form = SignupForm()
     context = {"form": form}
     return render(request, 'account/signup.html', context)
 
 @csrf_exempt
 def login_view(request):
+    print("\n", request, "\n \n \n")
+    
     if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        
         form = AuthenticationForm(data=request.POST)
+        print(username, password)
+        print("\n FORM VALIDITY:", form.get_user(), form.is_bound, form.errors, form.is_valid())
         if form.is_valid():
             # log in the user 
             user = form.get_user()

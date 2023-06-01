@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'account',
     'sponsors',
     # 'scholarship',
+    'crispy_forms',
     'django_rename_app',
     'django_filters',
     # 'AppNepthune.apps.AppnepthuneConfig',
@@ -86,30 +87,20 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'TIME_ZONE' : 'Europe/Paris',
-        'USER': 'postgres',
-        'PASSWORD': 'Postgresql1602!',
+        'NAME': 'nepthune',
+        'TIME_ZONE' : 'UTC',
+        'USER': 'victoria',
+        'PASSWORD': 'Startup-VLC2022',
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '',
         },
-    'student': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-        'TIME_ZONE' : 'Europe/Paris',
-        'USER': 'nepthune',
-        'PASSWORD': 'A2A2A2A2',
-    },
-       
-    'default2': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mydatabase',
-        'USER': 'mydatabaseuser',
-        'PASSWORD': 'mypassword',
-        'TIME_ZONE' : 'Europe/Paris',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
+    # 'default2': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    #     'TIME_ZONE' : 'Europe/Paris',
+    #     'USER': 'nepthune',
+    #     'PASSWORD': 'A2A2A2A2',
+    # },
 }
 
 DATABASE_ROUTERS = [Path('./config/auth_routers.py')]
@@ -149,22 +140,30 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+
 STATIC_URL = '/static/'
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+
+AUTH_USER_MODEL = 'account.CustomUser'
+
 if DEBUG:
     import mimetypes
     mimetypes.add_type("text/css", ".css", True)
-    mimetypes.add_type("application/javascript", ".js", True)
+    mimetypes.add_type("text/javascript", ".js", True)
 
 
 import json
 import os
 from .constants import *
+COUNTRIES = json.load(open(BASE_DIR / "config/countries.json", "r"))["country"]
 SIDEBAR_TITLES = json.load(open(BASE_DIR / "config/sidebar.json", "r"))["main"]
 NAV_TITLES = json.load(open(BASE_DIR / "config/navigation.json", "r"))["main"]
 

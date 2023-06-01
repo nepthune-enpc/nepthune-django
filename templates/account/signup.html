@@ -1,25 +1,77 @@
 {% extends 'account/base.html' %}
 
 {% block content %} 
-    <h1>S'inscrire</h1>
+<div class="vertical-center">
+    <div class="container">
+    <h2>Créer votre compte</h2>
+    <a id="deja" href="{% url 'account:login' %}">Déjà inscrit?</a>
     <form class="site-form" action="/account/signup/" method="post">
         {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="signup">
+      {% for f in form %}
+        <div class="field-wrap"><label>{{ f.label }}</label><br>{{ f }}</div>
+      {% endfor %}
+      <!-- {{ form.as_ul }} -->
+      {% if request.GET.next %}
+        <input type="hidden" name="next" value="{{ request.GET.next }}">
+      {% endif %}
+        <input type="submit" value="S'inscrire">
     </form>
+    </div>
+</div>
     <style>
-        input[type=button], input[type=reset] input[type=submit] {
-        margin-top: 40px;
-        margin-left: 40px;
-        font-size: 1em;
-        font-style: bold;
-        color: white;
-        background-color: rgb(20, 115, 192);
-        cursor: pointer;
-        border-radius: 0.4em;
-        margin-left: 600px;
-        margin-top: -50px;
-        padding: 10px 16px;
-      }
-    </style>
+        body {
+          font-style: normal;
+          font-family: 'Poppins', sans-serif;
+        }
+
+        h2 {
+          color: rgba(5, 21, 79, 0.92);
+          text-align: center;
+          margin-top: -10px;
+          margin-bottom: 17px;
+        }
+        .form-control {
+          text-align: left;
+          margin-bottom: 0.5em;
+          position: relative;
+          display:block;
+          font-family: 'Poppins', sans-serif;
+          color: rgba(5, 21, 79, 0.92);
+        }
+        #deja {
+          font-weight: 500;
+          /* text-align: right; */
+          float: right;
+          font-size: 16px;
+        }
+        p:hover {
+          font-weight: 500;
+          text-align: right;
+        }
+   
+        .field-wrap {
+          text-align: left;
+          position:relative;
+          margin-bottom:10px;
+        }
+        /* input[type="text"] > span {
+          display: block;
+          position: relative;
+          margin-bottom: 10px;
+        } */
+  
+        input[type=button], input[type=reset], input[type=submit] {
+          margin-top: 40px;
+          margin-left: 40px;
+          font-size: 1em;
+          font-style: bold;
+          color: white;
+          background-color: rgb(20, 115, 192);
+          cursor: pointer;
+          border-radius: 0.4em;
+          margin-left: 0px;
+          margin-top: 40px;
+          padding: 10px 126px;
+        }
+      </style>   
 {% endblock %}

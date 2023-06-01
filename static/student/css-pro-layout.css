@@ -130,7 +130,10 @@
     .layout .sidebar.break-point-xl ~ .layout .header {
     width: 100% !important;
     -webkit-transition: none;
-    transition: none; } }
+    transition: none; } 
+  }
+
+  
 @media (max-width: 1600px) {
 .layout .sidebar.break-point-xxl {
     position: fixed;
