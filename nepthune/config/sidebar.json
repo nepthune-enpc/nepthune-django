@@ -1,0 +1,24 @@
+{
+    "main": [
+        {
+            "title": "Accueil",
+            "url": "/",
+            "icon": "ri-dashboard-line"
+        },
+        {
+            "title": "Mes informations",
+            "url": "/infos-persos.html",
+            "icon": "ri-folder-2-line"
+        },
+        {
+            "title": "Mes filtres",
+            "url": "/myfilters.html",
+            "icon": "ri-bar-chart-2-fill"
+        },
+        {
+            "title": "Mes Notifications",
+            "url": "/notifications/",
+            "icon": "ri-notification-2-line"
+        }
+    ]
+}

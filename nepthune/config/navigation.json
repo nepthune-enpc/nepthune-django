@@ -1,0 +1,29 @@
+{
+    "main": [
+        {
+       "title": "Calendrier",
+       "url": "/calendrier/",
+       "class": "menu-item"
+    },
+    {
+        "title": "Bourses",
+        "url": "/bourses/",
+        "class": "menu-item sub-menu",
+        "sub_menu": [
+            "Bourses publiques", 
+            "Bourses privees", 
+            "Toutes les bourses"
+        ]
+    },
+    {
+        "title": "Partenaires",
+        "url": "/partenaires/",
+        "class": "menu-item"
+    },
+    {
+        "title": "FAQ",
+        "url": "/foire-aux-questions/",
+        "class": "menu-item"
+    }
+]
+}

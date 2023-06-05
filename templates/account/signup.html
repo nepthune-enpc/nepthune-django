@@ -1,4 +1,6 @@
 {% extends 'account/base.html' %}
+{% load widget_tweaks %}
+
 
 {% block content %} 
 <div class="vertical-center">
@@ -8,9 +10,13 @@
     <form class="site-form" action="/account/signup/" method="post">
         {% csrf_token %}
       {% for f in form %}
-        <div class="field-wrap"><label>{{ f.label }}</label><br>{{ f }}</div>
+      <div class="form-group">
+        {{ f.label }}
+        {% render_field f class="form-control" %}
+      </div>
+        <!-- <div class="field-wrap"><label>{{ f.label }}</label><br>{{ f }}</div> -->
       {% endfor %}
-      <!-- {{ form.as_ul }} -->
+      
       {% if request.GET.next %}
         <input type="hidden" name="next" value="{{ request.GET.next }}">
       {% endif %}
@@ -19,6 +25,9 @@
     </div>
 </div>
     <style>
+      .helptext {
+        display: none;
+      }
         body {
           font-style: normal;
           font-family: 'Poppins', sans-serif;
@@ -30,14 +39,15 @@
           margin-top: -10px;
           margin-bottom: 17px;
         }
-        .form-control {
-          text-align: left;
+        /* .form-control {
+          text-align: center;
           margin-bottom: 0.5em;
           position: relative;
-          display:block;
+          display:inline-grid;
+          overflow: auto;
           font-family: 'Poppins', sans-serif;
           color: rgba(5, 21, 79, 0.92);
-        }
+        } */
         #deja {
           font-weight: 500;
           /* text-align: right; */
@@ -53,12 +63,16 @@
           text-align: left;
           position:relative;
           margin-bottom:10px;
+          display: table;
+          border-radius: 3em;
         }
         /* input[type="text"] > span {
           display: block;
           position: relative;
           margin-bottom: 10px;
         } */
+
+
   
         input[type=button], input[type=reset], input[type=submit] {
           margin-top: 40px;

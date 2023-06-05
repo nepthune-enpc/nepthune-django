@@ -1,14 +1,16 @@
 {% extends 'student/base.html' %}
 
 {% block content %}
-<h1 style="margin-bottom: 0.5em; font-family: 'Poppins', sans-serif;">Vos informations personnelles</h1>
-<input type="button" value="Modifier mes informations">
+<h1>Vos informations personnelles</h1>
+<button type="button" class="btn btn-primary">Modifier mes informations</button>
 
 
 <style>
       body {
-        font-style: medium;
+        /* font-style: medium; */
         font-family: 'Poppins', sans-serif;
+      }
+      h1 {
         color: rgba(5, 21, 79, 0.92);
       }
       .form-control {
@@ -22,6 +24,12 @@
       ul li .fieldWrapper {
         font-style: medium;
         margin-bottom: 10px;
+      }
+
+      .btn {
+        text-align: center;
+        width: 10%;
+        
       }
 
       input[type=button], input[type=reset] {
